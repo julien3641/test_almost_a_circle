@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Add unittest for the class Base
+Add unit test for the class Base
 """
 import os
 import unittest
@@ -85,8 +85,8 @@ class TestBaseToJsonString(unittest.TestCase):
             - if the return value of 'to_json_string()' is list of dictionary
             - if the list is empty, return []
             - if the list is None, return []
-        The function 'reset_id()' was added to the class Base. It's necessary for
-        restart the id and permits making other tests.
+        The function 'reset_id()' was added to the class Base. It's necessary
+        for restart the id and permits making other tests.
         """
 
         Base.reset_id()
