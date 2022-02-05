@@ -27,6 +27,10 @@ class Test_Area(unittest.TestCase):
             p1 = Rectangle(-5, -5)
             p1.area()
 
+        with self.assertRaises(ValueError):
+            p1 = Rectangle(0, 0)
+            p1.area()
+
         with self.assertRaises(TypeError):
             R = Rectangle(True, True)
             R.area()
@@ -83,6 +87,10 @@ class Test_display(unittest.TestCase):
             R = Rectangle(-5, -5, -5, -5)
             R.display()
 
+        with self.assertRaises(ValueError):
+            R = Rectangle(0, 0, 0, )
+            R.display()
+
         with self.assertRaises(TypeError):
             R = Rectangle(True, False, False, True)
             R.display()
@@ -137,6 +145,10 @@ class Test_width(unittest.TestCase):
             R = Rectangle(-5, -5, -5, -5)
             R.width()
 
+        with self.assertRaises(ValueError):
+            R = Rectangle(0, -5, -5, -5)
+            R.width()
+
         with self.assertRaises(TypeError):
             R = Rectangle(True, False, False, True)
             R.width()
@@ -189,6 +201,10 @@ class Test_height(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             R = Rectangle(-5, -5, -5, -5)
+            R.height()
+
+        with self.assertRaises(ValueError):
+            R = Rectangle(-5, 0, -5, -5)
             R.height()
 
         with self.assertRaises(TypeError):
