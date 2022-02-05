@@ -63,8 +63,18 @@ class Test_Area(unittest.TestCase):
 class Test_display(unittest.TestCase):
 
     def test_display(self):
-        """Test with number, +, - , bool, str, tuple, set
-        list, empty and None"""
+        """
+        Tests about:
+            - positive integers
+            - negative integers
+            - boolean
+            - string
+            - tuple
+            - set
+            - list
+            - empty
+            - None
+        """
 
         R = Rectangle(2, 2, 3, 4)
         self.assertEqual(R.display(), None)
@@ -84,11 +94,9 @@ class Test_display(unittest.TestCase):
         with self.assertRaises(TypeError):
             R = Rectangle((1, 2, 3), (1, 2, 3), (1, 2, 3), (1, 2, 3))
             R.display()
-
         with self.assertRaises(TypeError):
             R = Rectangle([1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3])
             R.display()
-
         with self.assertRaises(TypeError):
             R = Rectangle({1, 2, 3}, {1, 2, 3}, {1, 2, 3}, {1, 2, 3})
             R.display()
@@ -96,7 +104,6 @@ class Test_display(unittest.TestCase):
         with self.assertRaises(TypeError):
             R = Rectangle(float("inf"), float("inf"), float("inf"), float("inf"))
             R.display()
-
         with self.assertRaises(TypeError):
             R = Rectangle(float("NaN"), float("NaN"), float("NaN"), float("NaN"))
             R.display()
