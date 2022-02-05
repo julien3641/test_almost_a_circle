@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import sys
 import unittest
 
 from models.base import Base
@@ -65,10 +66,47 @@ class Test_display(unittest.TestCase):
         """Test with number, +, - , bool, str, tuple, set
         list, empty and None"""
 
+        R = Rectangle(2, 2, 3, 4)
+        self.assertEqual(R.display(), None)
 
-       with self.assertRaises(TypeError):
-            p1 = Rectangle(-5, -5)
-            p1.display()
+        with self.assertRaises(ValueError):
+            R = Rectangle(-5, -5, -5, -5)
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle(True, False, False, True)
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle("Alfred", "Robin", "Batman", "Batgirl")
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle((1, 2, 3), (1, 2, 3), (1, 2, 3), (1, 2, 3))
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle([1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3])
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle({1, 2, 3}, {1, 2, 3}, {1, 2, 3}, {1, 2, 3})
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle(float("inf"), float("inf"), float("inf"), float("inf"))
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle(float("NaN"), float("NaN"), float("NaN"), float("NaN"))
+            R.display()
+
+        with self.assertRaises(TypeError):
+            R = Rectangle()
+            R.display()
+        with self.assertRaises(TypeError):
+            R = Rectangle(None, None, None, None)
+            R.display()
 
 if __name__ == "__main__":
     unittest.main()
