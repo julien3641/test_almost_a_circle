@@ -7,9 +7,18 @@ from models.rectangle import Rectangle
 class Test_Area(unittest.TestCase):
 
     def test_area(self):
-        """Test with number, +, - , bool, str, tuple, set
-        list, empty and None"""
-
+        """
+        Tests about:
+            - positive integers
+            - negative integers
+            - boolean
+            - string
+            - tuple
+            - set
+            - list
+            - empty
+            - None
+        """
         p1 = Rectangle(2, 3)
         self.assertEqual(p1.area(), 6)
 
@@ -18,31 +27,37 @@ class Test_Area(unittest.TestCase):
             p1.area()
 
         with self.assertRaises(TypeError):
-            Rectangle(True, True)
+            R = Rectangle(True, True)
+            R.area()
 
         with self.assertRaises(TypeError):
-            Rectangle("Alfred", "Robin")
+            R = Rectangle("Alfred", "Robin")
+            R.area()
 
         with self.assertRaises(TypeError):
-            Rectangle((1, 2, 3), (1, 2, 3))
+            R = Rectangle((1, 2, 3), (1, 2, 3))
+            R.area()
 
         with self.assertRaises(TypeError):
-            Rectangle([1, 2, 3], [1, 2, 3])
+            R = Rectangle([1, 2, 3], [1, 2, 3])
+            R.area()
 
         with self.assertRaises(TypeError):
-            Rectangle({1, 2, 3}, {1, 2, 3})
+            R = Rectangle({1, 2, 3}, {1, 2, 3})
+            R.area()
+        with self.assertRaises(TypeError):
+            R = Rectangle(float("inf"), 7)
+            R.area()
+        with self.assertRaises(TypeError):
+            R = Rectangle(float("NaN"), 7)
+            R.area()
 
         with self.assertRaises(TypeError):
-            Rectangle(float("inf"), 7)
-
+            R = Rectangle()
+            R.area()
         with self.assertRaises(TypeError):
-            Rectangle(float("NaN"), 7)
-
-        with self.assertRaises(TypeError):
-                Rectangle()
-
-        with self.assertRaises(TypeError):
-            Rectangle(None, None)
+            R = Rectangle(None, None)
+            R.area()
 
 class Test_display(unittest.TestCase):
 
@@ -50,11 +65,8 @@ class Test_display(unittest.TestCase):
         """Test with number, +, - , bool, str, tuple, set
         list, empty and None"""
 
-            display = "\n\n\n\n   ##\n   ##\n"
-            o = self.out_c()
-            self.assertEqual(o, display)
 
-       with self.assertRaises(ValueError):
+       with self.assertRaises(TypeError):
             p1 = Rectangle(-5, -5)
             p1.display()
 
