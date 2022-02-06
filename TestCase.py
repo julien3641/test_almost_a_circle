@@ -5,6 +5,7 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 
+
 class Test_Area(unittest.TestCase):
 
     def test_area(self):
@@ -64,6 +65,7 @@ class Test_Area(unittest.TestCase):
             R = Rectangle(None, None)
             R.area()
 
+
 class Test_display(unittest.TestCase):
 
     def test_display(self):
@@ -106,22 +108,27 @@ class Test_display(unittest.TestCase):
             R = Rectangle([1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3])
             R.display()
         with self.assertRaises(TypeError):
-            R = Rectangle({1, 2, 3}, {1, 2, 3}, {1, 2, 3}, {1, 2, 3})
+            R = Rectangle({1, 2, 3}, {1, 2, 3},
+                          {1, 2, 3}, {1, 2, 3})
             R.display()
 
         with self.assertRaises(TypeError):
-            R = Rectangle(float("inf"), float("inf"), float("inf"), float("inf"))
+            R = Rectangle(float("inf"), float("inf"),
+                          float("inf"), float("inf"))
             R.display()
         with self.assertRaises(TypeError):
-            R = Rectangle(float("NaN"), float("NaN"), float("NaN"), float("NaN"))
+            R = Rectangle(float("NaN"), float("NaN"),
+                          float("NaN"), float("NaN"))
             R.display()
 
         with self.assertRaises(TypeError):
             R = Rectangle()
             R.display()
+
         with self.assertRaises(TypeError):
             R = Rectangle(None, None, None, None)
             R.display()
+
 
 class Test_width(unittest.TestCase):
 
@@ -168,10 +175,12 @@ class Test_width(unittest.TestCase):
             R.width()
 
         with self.assertRaises(TypeError):
-            R = Rectangle(float("inf"), float("inf"), float("inf"), float("inf"))
+            R = Rectangle(float("inf"), float("inf"),
+                          float("inf"), float("inf"))
             R.width()
         with self.assertRaises(TypeError):
-            R = Rectangle(float("NaN"), float("NaN"), float("NaN"), float("NaN"))
+            R = Rectangle(float("NaN"), float("NaN"),
+                          float("NaN"), float("NaN"))
             R.width()
 
         with self.assertRaises(TypeError):
@@ -180,6 +189,7 @@ class Test_width(unittest.TestCase):
         with self.assertRaises(TypeError):
             R = Rectangle(None, None, None, None)
             R.width()
+
 
 class Test_height(unittest.TestCase):
 
@@ -226,10 +236,12 @@ class Test_height(unittest.TestCase):
             R.height()
 
         with self.assertRaises(TypeError):
-            R = Rectangle(float("inf"), float("inf"), float("inf"), float("inf"))
+            R = Rectangle(float("inf"), float("inf"),
+                          float("inf"), float("inf"))
             R.height()
         with self.assertRaises(TypeError):
-            R = Rectangle(float("NaN"), float("NaN"), float("NaN"), float("NaN"))
+            R = Rectangle(float("NaN"), float("NaN"),
+                          float("NaN"), float("NaN"))
             R.height()
 
         with self.assertRaises(TypeError):
@@ -238,6 +250,7 @@ class Test_height(unittest.TestCase):
         with self.assertRaises(TypeError):
             R = Rectangle(None, None, None, None)
             R.height()
+
 
 if __name__ == "__main__":
     unittest.main()
