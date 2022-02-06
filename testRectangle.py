@@ -10,7 +10,6 @@ Unittest classes:
     TestRectangle_to_dictionary
 """
 import io
-from re import I
 import sys
 import unittest
 from models.base import Base
